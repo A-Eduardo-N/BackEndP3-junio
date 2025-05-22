@@ -1,5 +1,7 @@
 package controller;
 
+import DTO.PessoaResponseDTO;
+import Repositorio.PessoaRepository;
 import domain.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -11,9 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pessoas")
-@RequiredArgsConstructor
 public class PessoaController {
     private final PessoaRepository repository;
+    public PessoaController(PessoaRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping
     @Transactional
@@ -51,7 +55,7 @@ public class PessoaController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+    public ResponseEntity<Object> excluir(@PathVariable Long id) {
         return repository.findById(id).map(p -> {
             repository.delete(p);
             return ResponseEntity.noContent().build();

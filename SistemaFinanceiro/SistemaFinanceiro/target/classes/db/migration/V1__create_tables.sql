@@ -6,7 +6,7 @@ CREATE TABLE categoria (
 CREATE TABLE pessoa (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    ativo BOOLEAN,
+    ativo BOOLEAN NOT NULL,
     logradouro VARCHAR(255) NOT NULL,
     numero VARCHAR(20) NOT NULL,
     complemento VARCHAR(255),
@@ -29,3 +29,4 @@ CREATE TABLE lancamento (
     FOREIGN KEY (categoria_id) REFERENCES categoria(id),
     FOREIGN KEY (pessoa_id) REFERENCES pessoa(id)
 );
+
