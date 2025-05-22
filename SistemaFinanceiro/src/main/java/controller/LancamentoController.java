@@ -74,3 +74,9 @@ public class LancamentoController {
         }).orElse(ResponseEntity.notFound().build());
     }
 }
+//@GetMapping("/pessoas/{id}"): define uma rota com uma variável de caminho chamada id.
+//@PathVariable Long id: diz ao Spring que o valor {id} da URL deve ser passado para esse parâmetro do método.
+
+//Use @PathVariable quando você quiser:
+//Acessar um item específico (ex: /produto/42)
+//Fazer operações baseadas em ID (GET, PUT, DELETE)
